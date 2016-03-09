@@ -56,6 +56,11 @@ function initialiseCart(items) {
   setData("cart", JSON.stringify(cartItems));
 }
 
+function initialse() {
+  initialiseItems();
+  initialiseCart(JSON.parse(getData("items")));
+}
+
 function appendItems(items) {
 
   items.forEach(function (item) {
@@ -75,7 +80,6 @@ function appendItems(items) {
 
 
 if (getData("items") == null) {
-  initialiseItems();
-  initialiseCart(JSON.parse(getData("items")));
+  initialse();
 }
 appendItems(JSON.parse(getData("items")));
