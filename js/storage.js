@@ -1,3 +1,7 @@
-/**
- * Created by hao on 3/9/16.
- */
+function getData(key) {
+  return localStorage.getItem(key);
+}
+
+function setData(key, value) {
+  localStorage.setItem(key, value);
+}
