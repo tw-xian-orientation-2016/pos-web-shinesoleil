@@ -41,6 +41,20 @@ function initialiseItems() {
   setData("items", JSON.stringify(items));
 }
 
+function initialiseCart(items) {
+
+  var cartItems = [];
+
+  items.forEach(function (item) {
+    cartItems.push({
+      "id": item.id,
+      "count": 0,
+      "subtotal": 0
+    });
+  });
+
+  setData("cart", JSON.stringify(cartItems));
+}
 
 function appendItems(items) {
 
@@ -62,5 +76,6 @@ function appendItems(items) {
 
 if (getData("items") == null) {
   initialiseItems();
+  initialiseCart(JSON.parse(getData("items")));
 }
 appendItems(JSON.parse(getData("items")));
