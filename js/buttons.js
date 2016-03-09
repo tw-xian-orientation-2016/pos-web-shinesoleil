@@ -16,7 +16,7 @@ function addCount(id, items, cart) {
       itemCart.count++;
       itemCart.subtotal += getPrice(id, items);
 
-      $('#' + id +'').html(itemCart.count);
+      $('#' + id + '').html(itemCart.count);
     }
   });
 
@@ -42,7 +42,7 @@ function minusCount(id, items, cart) {
       itemCart.count--;
       itemCart.subtotal -= getPrice(id, items);
 
-      $('#' + id +'').html(itemCart.count);
+      $('#' + id + '').html(itemCart.count);
     }
   });
 
@@ -64,9 +64,34 @@ function minusButton() {
   })
 }
 
-function changeCount() {
+function clearCount(id, items, cart) {
+  cart.forEach(function (itemCart) {
+    if (itemCart.id === id) {
+      itemCart.count = 0;
+      itemCart.subtotal = 0;
 
+    }
+  });
+
+  return cart;
 }
+
+function deleteButton() {
+
+  $(".delete").click(function () {
+    console.log("clicked");
+    var idItem = this.getAttribute("data-attribute");
+    console.log(idItem);
+
+    var cart = JSON.parse(getData("cart"));
+    var items = JSON.parse(getData("items"));
+
+    var newCart = clearCount(idItem, items, cart);
+    console.log(newCart);
+    setData("cart", JSON.stringify(newCart));
+  })
+}
+
 
 addButton();
 minusButton();

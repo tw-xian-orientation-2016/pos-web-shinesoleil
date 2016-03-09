@@ -65,13 +65,14 @@ function getCount(id, cart) {
   var count = 0;
 
   cart.forEach(function (itemCart) {
-    if(itemCart.id === id) {
+    if (itemCart.id === id) {
       count = itemCart.count;
     }
   });
 
   return count;
 }
+
 
 function appendItems(items, cart) {
 
@@ -89,6 +90,7 @@ function appendItems(items, cart) {
       '</tr>')
   })
 }
+
 
 
 if (getData("items") == null) {
