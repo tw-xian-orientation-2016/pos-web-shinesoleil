@@ -61,7 +61,19 @@ function initialse() {
   initialiseCart(JSON.parse(getData("items")));
 }
 
-function appendItems(items) {
+function getCount(id, cart) {
+  var count = 0;
+
+  cart.forEach(function (itemCart) {
+    if(itemCart.id === id) {
+      count = itemCart.count;
+    }
+  });
+
+  return count;
+}
+
+function appendItems(items, cart) {
 
   items.forEach(function (item) {
     $('table').append(
@@ -69,7 +81,7 @@ function appendItems(items) {
       '<td>' + item.name + '</td>' +
       '<td>' + item.price + '</td>' +
       '<td>' + item.unit + '</td>' +
-      '<td>0</td>' +
+      '<td id=' + item.id + '>' + getCount(item.id, cart) + '</td>' +
       '<td>' +
       '<button class="btn btn-warning btn-xs minus" data-attribute=' + item.id + '><span class="glyphicon glyphicon-minus"></span></button> ' +
       '<button class="btn btn-success btn-xs plus" data-attribute=' + item.id + '><span class="glyphicon glyphicon-plus"></span></button>' +
@@ -82,4 +94,4 @@ function appendItems(items) {
 if (getData("items") == null) {
   initialse();
 }
-appendItems(JSON.parse(getData("items")));
+appendItems(JSON.parse(getData("items")), JSON.parse(getData("cart")));
