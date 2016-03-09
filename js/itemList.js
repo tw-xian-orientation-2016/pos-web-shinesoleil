@@ -71,8 +71,8 @@ function appendItems(items) {
       '<td>' + item.unit + '</td>' +
       '<td>0</td>' +
       '<td>' +
-      '<button class="btn btn-warning btn-xs" data-attribute=' + item.id + '><span class="glyphicon glyphicon-minus"></span></button> ' +
-      '<button class="btn btn-success btn-xs" data-attribute=' + item.id + '><span class="glyphicon glyphicon-plus"></span></button>' +
+      '<button class="btn btn-warning btn-xs minus" data-attribute=' + item.id + '><span class="glyphicon glyphicon-minus"></span></button> ' +
+      '<button class="btn btn-success btn-xs plus" data-attribute=' + item.id + '><span class="glyphicon glyphicon-plus"></span></button>' +
       '</td>' +
       '</tr>')
   })
