@@ -36,7 +36,25 @@ function appendItems(items, cart) {
           '</tr>')
       }
     }
+  );
+  $('table').after(
+    '<h4>Total: ' + calculateTotal(cart) + '</h4>' +
+    '<h4>Time: ' + getTime() + '</h4>'
   )
+}
+
+function calculateTotal(cart) {
+  var total = 0;
+
+  cart.forEach(function (itemCart) {
+    total += itemCart.subtotal;
+  });
+
+  return total;
+}
+
+function getTime() {
+  return new Date().getTime();
 }
 
 appendItems(JSON.parse(getData("items")), JSON.parse(getData("cart")));
