@@ -40,10 +40,9 @@ function initialiseItems() {
 
   setData("items", JSON.stringify(items));
 }
-var test;
+
 
 function appendItems(items) {
-  items = JSON.parse(items);
 
   items.forEach(function (item) {
     $('table').append(
@@ -60,7 +59,8 @@ function appendItems(items) {
   })
 }
 
+
 if (getData("items") == null) {
   initialiseItems();
 }
-appendItems(getData("items"));
+appendItems(JSON.parse(getData("items")));
