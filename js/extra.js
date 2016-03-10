@@ -22,6 +22,18 @@ function getCount(id, cart) {
   return count;
 }
 
+function clearCount(id, cart) {
+  cart.forEach(function (itemCart) {
+    if (itemCart.id === id) {
+      itemCart.count = 0;
+      itemCart.subtotal = 0;
+
+    }
+  });
+
+  return cart;
+}
+
 function getSubtotal(id, cart) {
   var subtotal = 0;
 

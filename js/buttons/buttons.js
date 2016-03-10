@@ -64,18 +64,6 @@ function minusButton() {
   })
 }
 
-function clearCount(id, items, cart) {
-  cart.forEach(function (itemCart) {
-    if (itemCart.id === id) {
-      itemCart.count = 0;
-      itemCart.subtotal = 0;
-
-    }
-  });
-
-  return cart;
-}
-
 function deleteButton() {
 
   $(".delete").click(function () {
@@ -84,7 +72,7 @@ function deleteButton() {
     var cart = JSON.parse(getData("cart"));
     var items = JSON.parse(getData("items"));
 
-    var newCart = clearCount(idItem, items, cart);
+    var newCart = clearCount(idItem, cart);
     $(this).parent().parent().remove();
     setData("cart", JSON.stringify(newCart));
   })
