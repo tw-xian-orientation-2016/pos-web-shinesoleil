@@ -96,7 +96,3 @@ function detailButton() {
     window.location.href='receipt.html';
   })
 }
-
-
-addButton();
-minusButton();
