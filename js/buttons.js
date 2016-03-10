@@ -22,6 +22,18 @@ function getCount(id, cart) {
   return count;
 }
 
+function getSubtotal(id, cart) {
+  var subtotal = 0;
+
+  cart.forEach(function (itemCart) {
+    if (itemCart.id === id) {
+      subtotal = itemCart.subtotal;
+    }
+  });
+
+  return subtotal;
+}
+
 function addCount(id, items, cart) {
   cart.forEach(function (itemCart) {
     if (itemCart.id === id) {
@@ -44,8 +56,10 @@ function addButton() {
 
     var newCart = addCount(idItem, items, cart);
     var newCount = getCount(idItem, newCart);
+    var newSubtotal = getSubtotal(idItem, newCart);
 
     $(this).parent().siblings('[name="count"]').text(newCount);
+    $(this).parent().siblings('[name="subtotal"]').text(newSubtotal);
 
     setData("cart", JSON.stringify(newCart));
   })
@@ -74,8 +88,11 @@ function minusButton() {
 
     var newCart = minusCount(idItem, items, cart);
     var newCount = getCount(idItem, newCart);
+    var newSubtotal = getSubtotal(idItem, newCart);
+
 
     $(this).parent().siblings('[name="count"]').text(newCount);
+    $(this).parent().siblings('[name="subtotal"]').text(newSubtotal);
 
     setData("cart", JSON.stringify(newCart));
 
@@ -98,15 +115,13 @@ function clearCount(id, items, cart) {
 function deleteButton() {
 
   $(".delete").click(function () {
-    console.log("clicked");
     var idItem = this.getAttribute("data-attribute");
-    console.log(idItem);
 
     var cart = JSON.parse(getData("cart"));
     var items = JSON.parse(getData("items"));
 
     var newCart = clearCount(idItem, items, cart);
-    console.log(newCart);
+    $(this).parent().parent().remove();
     setData("cart", JSON.stringify(newCart));
   })
 }
