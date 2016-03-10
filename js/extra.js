@@ -45,7 +45,7 @@ function calculateTotal(cart) {
 }
 
 function getTime() {
-  return new Date().getTime();
+  return new Date().getTime().toString();
 }
 
 function getReceipt(time, receipts) {
@@ -53,6 +53,7 @@ function getReceipt(time, receipts) {
 
   receipts.forEach(function (receipt) {
     if (receipt.time === time) {
+      console.log(receipt);
       res = receipt;
     }
   });
