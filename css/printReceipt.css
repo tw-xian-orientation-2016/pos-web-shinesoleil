@@ -1,0 +1,9 @@
+@media print {
+  section {
+    display: block;
+  }
+
+  #backButton {
+    display: none;
+  }
+}
