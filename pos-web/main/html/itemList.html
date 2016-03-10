@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Item List</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
+</head>
+<body>
+<nav class="navbar navbar-default container">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">Item List - Web Store</a>
+  </div>
+</nav>
+
+<div class="container">
+  <button class="btn btn-default" id="receiptListButton">
+    <span class="glyphicon glyphicon-th-list"></span> Receipt List
+  </button>
+  <button class="btn btn-info" id="cartButton">
+    <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+  </button>
+</div>
+
+<div class="container">
+  <h3>Please select items:</h3>
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Unit</th>
+      <th>Count</th>
+      <th></th>
+    </tr>
+  </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="../js/initialise.js"></script>
+<script src="../js/storage.js"></script>
+<script src="../js/extra.js"></script>
+<script src="../js/pages/itemList.js"></script>
+<script src="../js/buttons/addButton.js"></script>
+<script src="../js/buttons/minusButton.js"></script>
+<script src="../js/buttons/cartButton.js"></script>
+<script src="../js/buttons/receiptListButton.js"></script>
+
+</body>
+</html>
