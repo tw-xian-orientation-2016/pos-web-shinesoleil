@@ -27,7 +27,6 @@ function clearCount(id, cart) {
     if (itemCart.id === id) {
       itemCart.count = 0;
       itemCart.subtotal = 0;
-
     }
   });
 
@@ -57,7 +56,7 @@ function calculateTotal(cart) {
 }
 
 function getTime() {
-  return new Date().getTime().toString();
+  return new Date().getTime();
 }
 
 function getReceipt(time, receipts) {
@@ -65,7 +64,6 @@ function getReceipt(time, receipts) {
 
   receipts.forEach(function (receipt) {
     if (receipt.time === time) {
-      console.log(receipt);
       res = receipt;
     }
   });

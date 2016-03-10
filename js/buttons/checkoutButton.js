@@ -11,7 +11,7 @@ function checkoutButton() {
 
     var cart = JSON.parse(getData("cart"));
     var items = JSON.parse(getData("items"));
-    var time = getTime();
+    var time = getTime().toString();
 
     receipts.push({
       "cart": cart,

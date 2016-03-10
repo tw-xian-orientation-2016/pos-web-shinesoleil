@@ -15,7 +15,7 @@ function appendItems(items, receipt) {
   );
   $('table').after(
     '<h4>Total: ' + calculateTotal(receipt.cart) + '</h4>' +
-    '<h4>Time: ' + getTime() + '</h4>'
+    '<h4>Time: ' + new Date(parseFloat(receipt.time)).toLocaleString() + '</h4>'
   )
 }
 $( document ).ready(function() {
