@@ -35,7 +35,14 @@ $( document ).ready(function() {
   minusButton();
 
   $('button').click(function () {
+    var cart = JSON.parse(getData("cart"));
+    var totalCount = 0;
 
+    cart.forEach(function (itemCart) {
+      totalCount += itemCart.count;
+    });
+
+    $('#totalCount').html('Total Count:  ' + totalCount);
   })
 });
 

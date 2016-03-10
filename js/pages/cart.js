@@ -34,5 +34,14 @@ $( document ).ready(function() {
   checkoutButton();
   backButton();
 
+  $('button').click(function () {
+    var cart = JSON.parse(getData("cart"));
+    var total = 0;
 
+    cart.forEach(function (itemCart) {
+      total += itemCart.subtotal;
+    });
+
+    $('#total').html('Total:  ' + total);
+  })
 });
