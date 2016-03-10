@@ -19,11 +19,6 @@ function appendCart(items, cart) {
   })
 }
 
-
-
-
-
-
 $( document ).ready(function() {
   appendCart(JSON.parse(getData("items")), JSON.parse(getData("cart")));
 
