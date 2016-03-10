@@ -9,5 +9,7 @@ function appendReceipt(receipts) {
   })
 }
 
-appendReceipt(JSON.parse(getData("receipts")));
-detailButton();
+$( document ).ready(function() {
+  appendReceipt(JSON.parse(getData("receipts")));
+  detailButton();
+});
