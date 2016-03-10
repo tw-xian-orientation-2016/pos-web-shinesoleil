@@ -31,27 +31,26 @@ function calculateTotal(cart) {
 
 
 function checkoutButton() {
-  var receipts;
-
-  if(getData("receipts") !== null) {
-    receipts = JSON.parse(getData("receipts"));
-  } else {
-    receipts = [];
-  }
-
-  var cart = JSON.parse(getData("cart"));
-  var items = JSON.parse(getData("items"));
-
-  receipts.push({
-    "cart": cart,
-    "time": getTime(),
-    "total": calculateTotal(cart)
-  });
-
-  setData("receipts", JSON.stringify(receipts));
-
-
   $("#checkoutButton").click(function () {
+
+    var receipts;
+
+    if(getData("receipts") !== null) {
+      receipts = JSON.parse(getData("receipts"));
+    } else {
+      receipts = [];
+    }
+
+    var cart = JSON.parse(getData("cart"));
+    var items = JSON.parse(getData("items"));
+
+    receipts.push({
+      "cart": cart,
+      "time": getTime(),
+      "total": calculateTotal(cart)
+    });
+
+    setData("receipts", JSON.stringify(receipts));
     window.location.href='receipt.html';
   })
 }
