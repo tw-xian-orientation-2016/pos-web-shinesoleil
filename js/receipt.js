@@ -1,20 +1,20 @@
-function appendItems(items, cart) {
+function appendItems(items, receipt) {
   items.forEach(function (item) {
-      if (getCount(item.id, cart) !== 0) {
+      if (getCount(item.id, receipt.cart) !== 0) {
         $('table').append(
           '<tr>' +
           '<td>' + item.name + '</td>' +
           '<td>' + item.price + '</td>' +
           '<td>' + item.unit + '</td>' +
-          '<td>' + getCount(item.id, cart) + '</td>' +
-          '<td>' + getSubtotal(item.id, cart) + '</td>' +
+          '<td>' + getCount(item.id, receipt.cart) + '</td>' +
+          '<td>' + getSubtotal(item.id, receipt.cart) + '</td>' +
           '<td></td>' +
           '</tr>')
       }
     }
   );
   $('table').after(
-    '<h4>Total: ' + calculateTotal(cart) + '</h4>' +
+    '<h4>Total: ' + calculateTotal(receipt.cart) + '</h4>' +
     '<h4>Time: ' + getTime() + '</h4>'
   )
 }
@@ -29,8 +29,7 @@ function calculateTotal(cart) {
   return total;
 }
 
-function getTime() {
-  return new Date().getTime();
-}
-
-appendItems(JSON.parse(getData("items")), JSON.parse(getData("cart")));
+var receipts = JSON.parse(getData("receipts"));
+var time = getData("time");
+var receipt = getReceipt(time, receipts);
+appendItems(JSON.parse(getData("items")), receipt);

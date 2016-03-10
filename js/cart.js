@@ -19,17 +19,6 @@ function appendCart(items, cart) {
   })
 }
 
-function calculateTotal(cart) {
-  var total = 0;
-
-  cart.forEach(function (itemCart) {
-    total += itemCart.subtotal;
-  });
-
-  return total;
-}
-
-
 function checkoutButton() {
   $("#checkoutButton").click(function () {
 
@@ -43,14 +32,20 @@ function checkoutButton() {
 
     var cart = JSON.parse(getData("cart"));
     var items = JSON.parse(getData("items"));
+    var time = getTime();
 
     receipts.push({
       "cart": cart,
-      "time": getTime(),
+      "time": time,
       "total": calculateTotal(cart)
     });
 
     setData("receipts", JSON.stringify(receipts));
+
+    clearData("cart");
+
+    setData("time", time);
+
     window.location.href='receipt.html';
   })
 }
