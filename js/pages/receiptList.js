@@ -12,4 +12,5 @@ function appendReceipt(receipts) {
 $( document ).ready(function() {
   appendReceipt(JSON.parse(getData("receipts")));
   detailButton();
+  backButton();
 });

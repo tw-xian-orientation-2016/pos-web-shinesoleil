@@ -1,4 +1,5 @@
 function appendCart(items, cart) {
+  var total = 0;
 
   items.forEach(function (item) {
     if (getCount(item.id, cart) !== 0) {
@@ -14,10 +15,15 @@ function appendCart(items, cart) {
         '<button class="btn btn-success btn-xs minus"  data-attribute=' + item.id + '><span class="glyphicon glyphicon-minus"></span></button> ' +
         '<button class="btn btn-success btn-xs plus"  data-attribute=' + item.id + '><span class="glyphicon glyphicon-plus"></span></button>' +
         '</td>' +
-        '</tr>')
+        '</tr>');
+      total += getSubtotal(item.id, cart);
     }
-  })
+  });
+
+  $('table').after('<h4 id="total">Total:' + total + '</h4>');
 }
+
+function appendTotal() {}
 
 $( document ).ready(function() {
   appendCart(JSON.parse(getData("items")), JSON.parse(getData("cart")));
@@ -26,5 +32,7 @@ $( document ).ready(function() {
   minusButton();
   deleteButton();
   checkoutButton();
+  backButton();
+
 
 });

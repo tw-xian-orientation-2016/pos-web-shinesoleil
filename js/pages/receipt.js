@@ -23,5 +23,6 @@ $( document ).ready(function() {
   var time = getData("time");
   var receipt = getReceipt(time, receipts);
   appendItems(JSON.parse(getData("items")), receipt);
+  backButton();
 });
 

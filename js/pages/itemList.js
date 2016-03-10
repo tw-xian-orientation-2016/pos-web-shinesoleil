@@ -29,5 +29,9 @@ $( document ).ready(function() {
 
   addButton();
   minusButton();
+
+  $('button').click(function () {
+
+  })
 });
 
