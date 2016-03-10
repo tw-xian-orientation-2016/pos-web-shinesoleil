@@ -1,3 +1,7 @@
-/**
- * Created by hao on 3/10/16.
- */
+function receiptListButton() {
+  $("#receiptListButton").click(function () {
+    window.location.href='receiptList.html';
+  });
+}
+
+receiptListButton();
