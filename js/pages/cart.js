@@ -20,7 +20,7 @@ function appendCart(items, cart) {
     }
   });
 
-  $('table').after('<h4 id="total">Total:' + total + '</h4>');
+  $('table').after('<h4 id="total">Total: ' + total + '</h4>');
 }
 
 function appendTotal() {}

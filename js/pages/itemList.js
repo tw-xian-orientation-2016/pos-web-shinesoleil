@@ -1,4 +1,5 @@
 function appendItems(items, cart) {
+  var totalCount = 0;
 
   items.forEach(function (item) {
     $('table').append(
@@ -11,8 +12,11 @@ function appendItems(items, cart) {
       '<button class="btn btn-warning btn-xs minus" data-attribute=' + item.id + '><span class="glyphicon glyphicon-minus"></span></button> ' +
       '<button class="btn btn-success btn-xs plus" data-attribute=' + item.id + '><span class="glyphicon glyphicon-plus"></span></button>' +
       '</td>' +
-      '</tr>')
-  })
+      '</tr>');
+    totalCount += getCount(item.id, cart);
+  });
+
+  $('table').after('<h4 id="totalCount">Total Count: ' + totalCount + '</h4>');
 }
 
 
