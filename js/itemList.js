@@ -82,7 +82,11 @@ function appendItems(items, cart) {
 
 
 
-if (getData("items") == null) {
+if (getData("items") === null) {
+  initialse();
+}
+
+if(getData("cart") === null) {
   initialse();
 }
 appendItems(JSON.parse(getData("items")), JSON.parse(getData("cart")));
