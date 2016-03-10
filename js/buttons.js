@@ -10,13 +10,24 @@ function getPrice(id, items) {
   return price;
 }
 
+function getCount(id, cart) {
+  var count = 0;
+
+  cart.forEach(function (itemCart) {
+    if (itemCart.id === id) {
+      count = itemCart.count;
+    }
+  });
+
+  return count;
+}
+
 function addCount(id, items, cart) {
   cart.forEach(function (itemCart) {
     if (itemCart.id === id) {
       itemCart.count++;
       itemCart.subtotal += getPrice(id, items);
 
-      $('#' + id + '').html(itemCart.count);
     }
   });
 
@@ -30,9 +41,13 @@ function addButton() {
     var cart = JSON.parse(getData("cart"));
     var items = JSON.parse(getData("items"));
 
-    var newCart = addCount(idItem, items, cart);
-    setData("cart", JSON.stringify(newCart));
 
+    var newCart = addCount(idItem, items, cart);
+    var newCount = getCount(idItem, newCart);
+
+    $(this).parent().siblings('[name="count"]').text(newCount);
+
+    setData("cart", JSON.stringify(newCart));
   })
 }
 
@@ -58,6 +73,10 @@ function minusButton() {
     var items = JSON.parse(getData("items"));
 
     var newCart = minusCount(idItem, items, cart);
+    var newCount = getCount(idItem, newCart);
+
+    $(this).parent().siblings('[name="count"]').text(newCount);
+
     setData("cart", JSON.stringify(newCart));
 
 
