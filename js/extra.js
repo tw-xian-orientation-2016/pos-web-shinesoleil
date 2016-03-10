@@ -34,6 +34,28 @@ function getSubtotal(id, cart) {
   return subtotal;
 }
 
+function calculateTotal(cart) {
+  var total = 0;
+
+  cart.forEach(function (itemCart) {
+    total += itemCart.subtotal;
+  });
+
+  return total;
+}
+
 function getTime() {
   return new Date().getTime();
+}
+
+function getReceipt(time, receipts) {
+  var res;
+
+  receipts.forEach(function (receipt) {
+    if (receipt.time === time) {
+      res = receipt;
+    }
+  });
+
+  return res;
 }
