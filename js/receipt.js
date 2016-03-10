@@ -18,18 +18,10 @@ function appendItems(items, receipt) {
     '<h4>Time: ' + getTime() + '</h4>'
   )
 }
+$( document ).ready(function() {
+  var receipts = JSON.parse(getData("receipts"));
+  var time = getData("time");
+  var receipt = getReceipt(time, receipts);
+  appendItems(JSON.parse(getData("items")), receipt);
+});
 
-function calculateTotal(cart) {
-  var total = 0;
-
-  cart.forEach(function (itemCart) {
-    total += itemCart.subtotal;
-  });
-
-  return total;
-}
-
-var receipts = JSON.parse(getData("receipts"));
-var time = getData("time");
-var receipt = getReceipt(time, receipts);
-appendItems(JSON.parse(getData("items")), receipt);
